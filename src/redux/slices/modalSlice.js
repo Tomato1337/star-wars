@@ -9,6 +9,8 @@ export const fetchModal = createAsyncThunk(
             const _transformPeoples = async (data) => {
                 let otherInfo = [data.species, [data.homeworld], data.films]
 
+                // console.log(otherInfo)
+
                 const filterData = otherInfo.map(async (other) => {
                     return Promise.all(
                         other.map((info) => {

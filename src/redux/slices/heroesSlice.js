@@ -14,7 +14,8 @@ export const fetchHeroes = createAsyncThunk(
 
         const changeHeroesList = async () => {
             const _transformPeople = async (data) => {
-                const filterData = await data.species.map(async (item) => {
+                // console.log(data)
+                const filterData = await data.species.map((item) => {
                     return request(item).then((res) => res)
                 })
 

@@ -108,13 +108,8 @@ const View = ({ name, birthYear, gender, other, eyeColor }) => {
                             <span>Films</span>
                         </div>
                         <div className="popup-link__value">
-                            {other[2].map((item) => {
-                                return (
-                                    <>
-                                        {item.title}
-                                        <br />
-                                    </>
-                                )
+                            {other[2].map((item, i) => {
+                                return <div key={i}>{item.title}</div>
                             })}
                         </div>
                     </div>
