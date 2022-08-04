@@ -48,6 +48,7 @@ const initialState = {
     items: [],
     status: 'loading',
     link: '',
+    isFirst: true,
 }
 
 const modalSlice = createSlice({
@@ -56,6 +57,9 @@ const modalSlice = createSlice({
     reducers: {
         setLink: (state, action) => {
             state.link = action.payload
+        },
+        setIsFirst: (state, action) => {
+            state.isFirst = action.payload
         },
     },
     extraReducers: {
@@ -76,5 +80,5 @@ const modalSlice = createSlice({
 
 const { actions, reducer } = modalSlice
 
-export const { setLink } = actions
+export const { setLink, setIsFirst } = actions
 export default reducer

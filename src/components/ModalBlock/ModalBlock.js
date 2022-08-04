@@ -8,21 +8,20 @@ import films from '../../assets/img/films.svg'
 import Loading from '../LoadingBlock/LoadingBlock'
 
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useRef } from 'react'
-import { fetchModal, setLink } from '../../redux/slices/modalSlice'
+import { useEffect } from 'react'
+import { fetchModal, setIsFirst, setLink } from '../../redux/slices/modalSlice'
 import { useHttp } from '../../hooks/http.hook'
 
 const Modal = () => {
     const dispatch = useDispatch()
-    const isFirst = useRef(true)
     const { request } = useHttp()
-    const { items, status, link } = useSelector((state) => state.modal)
+    const { items, status, link, isFirst } = useSelector((state) => state.modal)
 
     useEffect(() => {
-        if (!isFirst.current && link.length > 0) {
+        if (!isFirst && link.length > 0) {
             dispatch(fetchModal({ request, api: link }))
         }
-        isFirst.current = false
+        dispatch(setIsFirst(false))
     }, [link])
 
     const clazz =

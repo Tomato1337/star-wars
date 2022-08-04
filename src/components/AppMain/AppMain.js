@@ -60,7 +60,7 @@ const Main = () => {
             dispatch(setSearchValue(str))
             dispatch(setIsFirst(true))
             dispatch(clearHeroes())
-        }, 250),
+        }, 500),
         []
     )
 
